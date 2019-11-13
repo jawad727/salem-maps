@@ -12,7 +12,7 @@ function App() {
   const [viewport, setViewport] = useState({
     latitude: 44.9429,
     longitude: -123.0351,
-    zoom: 13,
+    zoom: 12,
     width: "100%",
     height: "100vh",
     
@@ -23,7 +23,7 @@ function App() {
     <div className="App">
 
     <div className="navbar">
-      <p> MARION COUNTY NON PROFITS </p>
+      <p> MARION COUNTY NON-PROFITS </p>
     </div>
 
     <div className="mainSidebar">
@@ -37,17 +37,19 @@ function App() {
               </div>
             </div>
       ))}
-
+    <div className="sidebarbottom"/>
     </div>
     
     <ReactMapGL {...viewport} mapboxApiAccessToken={token}
-    
+    mapStyle="mapbox://styles/jawad727/ck2x3v5sq290g1crumh9munqn"
     onViewportChange={(viewport) => {
       setViewport(viewport)
     }}>
-      <Marker latitude={locations[0]} longitude={locations[1]}>
+      {locationss.map(item => (
+      <Marker latitude={item.latitude} longitude={item.longitude}>
       <button className="markerButtons"></button>
-      </Marker>
+      </Marker> ))}
+
     </ReactMapGL>
     </div>
   );

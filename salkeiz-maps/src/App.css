@@ -6,6 +6,10 @@ p {
   font-family: Didact Gothic;
 }
 
+button:focus {
+  outline: none;
+}
+
 .mainSidebar {
   position: absolute;
   height: 100%;
@@ -28,7 +32,8 @@ p {
 .cardIMG {
   width: 400px;
   height: 200px;
-  background-image: url("./data/pictures/able.PNG");
+  /* background-image: url("./data/pictures/able.PNG"); */
+  background: red;
   background-position: center;
 }
 

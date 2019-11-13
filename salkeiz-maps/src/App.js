@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 import ReactMapGL, {Marker} from "react-map-gl"
 import marianfoodshare from "./data/pictures/marian-foodshare.PNG"
-
+import { locationss } from "./data/nonprofits.js"
 
 const token = "pk.eyJ1IjoiamF3YWQ3MjciLCJhIjoiY2syd283cGY5MGhxZTNibzJsOGZvdzBsZCJ9.M4Ow-roauf6Sh7Yk-C44jA"
 const locations = [44.9429, -123.0351]
+console.log(locationss)
 
 function App() {
   const [viewport, setViewport] = useState({
@@ -18,6 +19,7 @@ function App() {
   })
 
   return (
+
     <div className="App">
 
     <div className="navbar">
@@ -25,23 +27,17 @@ function App() {
     </div>
 
     <div className="mainSidebar">
-      <div className="cardObject">
+      {locationss.map(item => (
+              <div className="cardObject">
+              <div className="cardIMG" style={{ backgroundImage: `url(${item.imgURL})` }} /> 
+              <div className="cardContent">
+                <p className="nameObject"> {item.name} </p>
+                <p className="addressObject"> {item.address} </p>
+                <p className="numberObject"><strong> Phone: </strong> {item.number} </p>
+              </div>
+            </div>
+      ))}
 
-        <div className="cardIMG" /> 
-        
-        <div className="cardContent">
-          <p className="nameObject"> Boys & Girls Club of Salem, Marion and Polk Counties </p>
-          <p className="addressObject"> 2405 Front St NE #120, Salem, OR 97301 </p>
-          <p className="numberObject"><strong> Phone: </strong> (503) 364-9943 </p>
-        </div>
-
-      </div>
-
-      <div className="cardObject">
-
-        <div className="cardIMG" /> 
-
-      </div>
     </div>
     
     <ReactMapGL {...viewport} mapboxApiAccessToken={token}

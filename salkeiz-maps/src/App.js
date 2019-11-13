@@ -13,7 +13,7 @@ function App() {
     latitude: 44.9429,
     longitude: -123.0351,
     zoom: 13,
-    width: "100vw",
+    width: "100%",
     height: "100vh",
     
   })

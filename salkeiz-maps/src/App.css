@@ -16,9 +16,10 @@ button:focus {
   /* width: 400px; */
   background: white;
   z-index: 1;
-
+  overflow-y : auto;
   /* display: flex;
   justify-content: center; */
+
 }
 
 .cardObject {

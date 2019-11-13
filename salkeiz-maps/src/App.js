@@ -19,18 +19,38 @@ function App() {
 
   return (
     <div className="App">
-    <div>
-      <div> 
+
+    <div className="navbar">
+      <p> MARION COUNTY NON PROFITS </p>
+    </div>
+
+    <div className="mainSidebar">
+      <div className="cardObject">
+
+        <div className="cardIMG" /> 
+        
+        <div className="cardContent">
+          <p className="nameObject"> Boys & Girls Club of Salem, Marion and Polk Counties </p>
+          <p className="addressObject"> 2405 Front St NE #120, Salem, OR 97301 </p>
+          <p className="numberObject"><strong> Phone: </strong> (503) 364-9943 </p>
+        </div>
+
+      </div>
+
+      <div className="cardObject">
+
+        <div className="cardIMG" /> 
 
       </div>
     </div>
+    
     <ReactMapGL {...viewport} mapboxApiAccessToken={token}
-    // mapStyle="mapbox://styles/jawad727/ck2wp8iui0eva1cmr5shukly8"
+    
     onViewportChange={(viewport) => {
       setViewport(viewport)
     }}>
       <Marker latitude={locations[0]} longitude={locations[1]}>
-      <button>BUTTON</button>
+      <button className="markerButtons"></button>
       </Marker>
     </ReactMapGL>
     </div>

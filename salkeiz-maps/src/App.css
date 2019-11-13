@@ -1,22 +1,75 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
-.App-logo {
-  height: 40vmin;
+p {
+  font-family: Didact Gothic;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mainSidebar {
+  position: absolute;
+  height: 100%;
+  /* width: 400px; */
+  background: white;
+  z-index: 1;
+
+  /* display: flex;
+  justify-content: center; */
+}
+
+.cardObject {
+  border: 1px solid lightgrey;
+  width: 400px;
+  /* height: 280px; */
+  margin: 5px;
+  border-bottom: 5px solid darkred;
+}
+
+.cardIMG {
+  width: 400px;
+  height: 200px;
+  background-image: url("./data/pictures/able.PNG");
+  background-position: center;
+}
+
+.nameObject {
+  margin: 0px;
+  font-size: 20px;
+  margin-left: 5px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.addressObject {
+  margin: 0px;
+  margin-left: 5px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.numberObject {
+  margin: 5px;
+}
+
+.markerButtons {
+  width: 20px;
+  height: 20px;
+  background-color: lightgreen;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+.navbar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: lightgreen;
+  height: 70px;
+  /* border-bottom: 3px solid black; */
 }
 
-.App-link {
-  color: #09d3ac;
+.navbar p {
+  margin: 0px;
+  font-size: 2rem;
+  font-weight: 600;
 }

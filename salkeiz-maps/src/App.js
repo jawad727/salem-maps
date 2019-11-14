@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import ReactMapGL, {Marker} from "react-map-gl"
-import marianfoodshare from "./data/pictures/marian-foodshare.PNG"
+import ReactMapGL from "react-map-gl"
 import { locationss } from "./data/nonprofits.js"
 import {TweenMax} from "gsap"
+import MarkerClass from "./components/Marker"
 
 const token = "pk.eyJ1IjoiamF3YWQ3MjciLCJhIjoiY2syd283cGY5MGhxZTNibzJsOGZvdzBsZCJ9.M4Ow-roauf6Sh7Yk-C44jA"
 
@@ -27,12 +27,12 @@ function App() {
   const ddd = {menuisopen: !menuopen.menuisopen}
 
   const editMenuAnimationClose = () => { 
-    TweenMax.to("#mainSidebar", 1, { transform: "translateX(-450px)" })
+    TweenMax.to(".mainSidebar", 1, { transform: "translateX(-450px)" })
     console.log("Failed")
   }
 
   const editMenuAnimationOpen = () => { 
-    TweenMax.to("#mainSidebar", 1, { transform: "translateX(0px)" })
+    TweenMax.to(".mainSidebar", 1, { transform: "translateX(0px)" })
     console.log("Worked")
   }
 
@@ -50,7 +50,7 @@ function App() {
     {menuopen.menuisopen ? editMenuAnimationOpen() : editMenuAnimationClose()}
 
 
-    <div id="mainSidebar">
+    <div className="mainSidebar">
       {locationss.map(item => (
               <div className="cardObject" key={item.number}>
               <div className="cardIMG" style={{ backgroundImage: `url(${item.imgURL})` }} /> 
@@ -64,7 +64,7 @@ function App() {
     <div className="sidebarbottom"/>
     </div>
     <div className="menuarrow"  onClick={() => (setMenuopen(ddd))}>
-    <i class="fas fa-angle-right fa-4x"></i>
+    <i className="fas fa-angle-right fa-4x"></i>
     </div>
 
 
@@ -75,10 +75,8 @@ function App() {
       setViewport(viewport)
     }}>
 
-      {locationss.map(item => (
-      <Marker latitude={item.latitude} longitude={item.longitude} key={item.number}>
-        <button className="markerButtons" onClick={() => (setMenuopen(ddd))}></button>
-      </Marker> ))}
+
+      <MarkerClass locationss={locationss} setMenuopen={setMenuopen} ddd={ddd}/>
 
     </ReactMapGL>
     </div>

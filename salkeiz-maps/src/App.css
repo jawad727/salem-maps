@@ -15,11 +15,11 @@ button:focus {
   height: 100%;
   /* width: 400px; */
   background: white;
-  z-index: 1;
+  z-index: 3;
   overflow-y : auto;
   margin-top: 70px;
   margin-bottom: 70px;
-
+  transform: translateX(0px);
 }
 
 .cardObject {
@@ -34,7 +34,7 @@ button:focus {
   width: 400px;
   height: 200px;
   /* background-image: url("./data/pictures/able.PNG"); */
-  background: red;
+  background: white;
   background-position: center;
 }
 
@@ -88,3 +88,16 @@ button:focus {
 .sidebarbottom {
   height: 70px;
 }
+
+.menuarrow {
+  position: fixed;
+  z-index: 2;
+  margin-left: 440px;
+  height: 100%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+

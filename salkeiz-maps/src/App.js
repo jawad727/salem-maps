@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
 import ReactMapGL from "react-map-gl"
+import marianfoodshare from "./data/pictures/marian-foodshare.PNG"
 import { locationss } from "./data/nonprofits.js"
 import {TweenMax} from "gsap"
 import MarkerClass from "./components/Marker"
 
 const token = "pk.eyJ1IjoiamF3YWQ3MjciLCJhIjoiY2syd283cGY5MGhxZTNibzJsOGZvdzBsZCJ9.M4Ow-roauf6Sh7Yk-C44jA"
 
-console.log(locationss)
+// console.log(locationss)
 
 
 function App() {
@@ -24,16 +25,20 @@ function App() {
     menuisopen: true 
   })
 
+  const [numberAuth, setNumberAuth] = useState({
+    authnumber: null
+  })
+
   const ddd = {menuisopen: !menuopen.menuisopen}
 
   const editMenuAnimationClose = () => { 
     TweenMax.to(".mainSidebar", 1, { transform: "translateX(-450px)" })
-    console.log("Failed")
+    // console.log("Failed")
   }
 
   const editMenuAnimationOpen = () => { 
     TweenMax.to(".mainSidebar", 1, { transform: "translateX(0px)" })
-    console.log("Worked")
+    // console.log("Worked")
   }
 
   return (
@@ -41,7 +46,7 @@ function App() {
 
     <div className="App">
 
-    {console.log(menuopen.menuisopen)}
+    {/* {console.log(numberAuth)} */}
 
     <div className="navbar">
       <p> MARION COUNTY NON-PROFITS </p>
@@ -52,7 +57,7 @@ function App() {
 
     <div className="mainSidebar">
       {locationss.map(item => (
-              <div className="cardObject" key={item.number}>
+              <div className="cardObject" key={item.number} onClick={() => {setNumberAuth({authnumber: item.number})} }>
               <div className="cardIMG" style={{ backgroundImage: `url(${item.imgURL})` }} /> 
               <div className="cardContent">
                 <p className="nameObject"> {item.name} </p>
@@ -75,8 +80,11 @@ function App() {
       setViewport(viewport)
     }}>
 
+    {locationss.map(item => (
+            
+            <MarkerClass authnumber={numberAuth.authnumber} numberid={item.number} item={item} />
 
-      <MarkerClass locationss={locationss} setMenuopen={setMenuopen} ddd={ddd}/>
+            ))}
 
     </ReactMapGL>
     </div>

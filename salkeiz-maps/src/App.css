@@ -101,3 +101,16 @@ button:focus {
 }
 
 
+@media (max-width: 500px) {
+
+  .navbar p {
+   
+    font-size: 1.3rem;
+
+  }
+
+  .mainSidebar {
+    display: none;
+  }
+
+  }

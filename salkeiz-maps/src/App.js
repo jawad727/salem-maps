@@ -23,7 +23,11 @@ function App() {
   })
 
   const [numberAuth, setNumberAuth] = useState({
-    authnumber: 454
+    authnumber: 454,
+  })
+
+  const [colorChanger, setColorChanger] = useState({
+    locationColor: "darkred"
   })
 
   const editMenuAnimationClose = () => { 
@@ -42,19 +46,19 @@ function App() {
     
 
     <div className="App">
-    {/* {console.log(menuopen.menuisopen)} */}
-    
 
     <div className="navbar">
+      <i class="fas fa-bars fa-2x menuBurger" onClick={() => (setMenuopen({menuisopen: !menuopen.menuisopen}))}></i>
       <p> MARION COUNTY NON-PROFITS </p>
     </div>
+    
     
     {menuopen.menuisopen ? editMenuAnimationOpen() : editMenuAnimationClose()}
 
 
     <div className="mainSidebar">
       {locationss.map(item => (
-              <div className="cardObject" key={item.number} onClick={() => {setNumberAuth({authnumber: item.number } ) } }>
+              <div className="cardObject" key={item.number} onClick={() => {setNumberAuth({authnumber: item.number } );  } } style={{borderBottom: `5px solid ${colorChanger.locationColor}`}}>
               <div className="cardIMG" style={{ backgroundImage: `url(${item.imgURL})` }} /> 
               <div className="cardContent">
                 <p className="nameObject"> {item.name} </p>
@@ -70,8 +74,6 @@ function App() {
     <i className="fas fa-angle-right fa-4x"></i>
     </div>
 
-
-    
     <ReactMapGL {...viewport} mapboxApiAccessToken={token}
     mapStyle="mapbox://styles/jawad727/ck2x3v5sq290g1crumh9munqn"
     onViewportChange={(viewport) => {
@@ -80,7 +82,7 @@ function App() {
 
     {locationss.map(item => (
             
-            <MarkerClass authnumber={numberAuth.authnumber} numberid={item.number} item={item} />
+            <MarkerClass setColorChanger={setColorChanger} authnumber={numberAuth.authnumber} numberid={item.number} item={item} />
 
             ))}
 

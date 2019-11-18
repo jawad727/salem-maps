@@ -15,20 +15,24 @@ class MarkerClass extends Component {
     componentWillReceiveProps(newProps) {
         console.log("componentStart")
        if (newProps.authnumber == this.props.item.number) {this.setState({turnedoff: false})}
+    //    if (newProps.authnumber == this.props.item.number) {() => {this.props.setColorChanger({ locationColor: "lightgreen" })}}
        console.log()
        console.log(this.state.turnedoff)
     }
 
-
+    // {this.state.turnedoff == true ?   : () => {this.props.setColorChanger({ locationColor: "darkred" })} }
       
-
+    //  www() {
+    //     this.props.setColorChanger({ locationColor: "lightgreen" })
+    // }
       
 
     render() { 
-        // {console.log(`${this.state.turnedoff}, ${this.props.item.number} -> ${this.props.authnumber}`)}
-      
-        {if (this.state.turnedoff == this.props.item.number) {console.log("TRUEs") } }
 
+        // {() => {this.props.setColorChanger({ locationColor: "lightgreen" })}}
+    //   console.log(this.props.setColorChanger)
+    // {() => (this.www())}
+        
         {   
             var address = this.props.item.address
             var splitAddress = address.split(" ")
@@ -42,23 +46,23 @@ class MarkerClass extends Component {
 
           var mapsURL = splitAddress.join("")
 
-        //   console.log(mapsURL)
       
         return (
 
             <Marker className="aaa" latitude={this.props.item.latitude} longitude={this.props.item.longitude} key={this.props.item.number}>
+
+                
+
                 <button className="markerButtons" onClick={() => (this.setState({turnedoff: !this.state.turnedoff}) )} style={this.state.turnedoff ? {backgroundColor: "darkred"} : null} ></button>
-                <div className="describerContainer">
+                <div className="describerContainer" style={!this.state.turnedoff ? {display: "block"} : null }>
                     <div className="arrowUp" />
                     <div className="describer">
                         {this.props.item.name} <br />
                         <button className="describerButton btn1" >Website</button><a target="_blank" href={`https://www.google.com/maps/place/${mapsURL}`} className="describerButton btn2" >Take me there</a>
                     </div>
-                    
                 </div>
             </Marker> 
-            
-        
+
       );
     }
   }

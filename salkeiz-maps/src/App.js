@@ -8,9 +8,6 @@ import MarkerClass from "./components/Marker"
 
 const token = "pk.eyJ1IjoiamF3YWQ3MjciLCJhIjoiY2syd283cGY5MGhxZTNibzJsOGZvdzBsZCJ9.M4Ow-roauf6Sh7Yk-C44jA"
 
-// console.log(locationss)
-
-
 function App() {
 
   const [viewport, setViewport] = useState({
@@ -26,10 +23,8 @@ function App() {
   })
 
   const [numberAuth, setNumberAuth] = useState({
-    authnumber: null
+    authnumber: 454
   })
-
-  const ddd = {menuisopen: !menuopen.menuisopen}
 
   const editMenuAnimationClose = () => { 
     TweenMax.to(".mainSidebar", 1, { left: "-430px" })
@@ -47,7 +42,7 @@ function App() {
     
 
     <div className="App">
-    {console.log(menuopen.menuisopen)}
+    {/* {console.log(menuopen.menuisopen)} */}
     
 
     <div className="navbar">

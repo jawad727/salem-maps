@@ -12,16 +12,12 @@ class MarkerClass extends Component {
         turnedoff: true
     }
     
-    componentWillReceiveProps() {
+    componentWillReceiveProps(newProps) {
         console.log("componentStart")
-       if (this.props.authnumber == this.props.item.number) {this.setState({turnedoff: false})}
-       console.log("componentEnd")
+       if (newProps.authnumber == this.props.item.number) {this.setState({turnedoff: false})}
+       console.log()
+       console.log(this.state.turnedoff)
     }
-
-    editMenuAnimationOpen = () => { 
-        TweenMax.to(".markerButtons", 1, { transform: "translateX(0px)" })
-        // console.log("Worked")
-      }
 
 
       
@@ -29,8 +25,10 @@ class MarkerClass extends Component {
       
 
     render() { 
-        // {console.log(`aaa ${this.state.turnedoff}, ${this.props.item.number} -> ${this.props.authnumber}`)}
+        // {console.log(`${this.state.turnedoff}, ${this.props.item.number} -> ${this.props.authnumber}`)}
       
+        {if (this.state.turnedoff == this.props.item.number) {console.log("TRUEs") } }
+
         {   
             var address = this.props.item.address
             var splitAddress = address.split(" ")
@@ -44,7 +42,7 @@ class MarkerClass extends Component {
 
           var mapsURL = splitAddress.join("")
 
-          console.log(mapsURL)
+        //   console.log(mapsURL)
       
         return (
 

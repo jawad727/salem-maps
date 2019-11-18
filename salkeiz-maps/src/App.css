@@ -108,12 +108,14 @@ button:focus {
 .describer {
   /* width: 150px;
   height: 30px; */
+  display: flex;
   background-color: white;
   padding: 7px;
   max-width: 250px;
   box-shadow: 2px 2px 5px grey;
   font-family: Didact Gothic;
   font-weight: 600;
+  text-align: center;
 }
 
 .describerContainer {
@@ -122,16 +124,21 @@ button:focus {
 }
 
 .markerButtons {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: lightgreen;
   border: 3px solid black;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.aaa:hover div {
+.aaa:hover .describerContainer {
   display: block;
+  z-index: 50;
+}
+
+.aaa:hover .arrowUp {
+  display: flex;
   z-index: 50;
 }
 
@@ -151,15 +158,24 @@ button:focus {
 
 .btn2 {
   background-color: lightblue;
-  padding: 2px 4px;
+  /* padding: 2px 4px;
   color: black;
-  text-decoration: none;;
+  text-decoration: none;; */
 }
 
 .menuBurger {
   display: none;
   z-index: 3;
+}
 
+.describerSecondHalf {
+  width: 80px;
+  margin-left: 5px;
+  background-position: center;
+}
+
+.doubleButtonContainer {
+  width: 170px;
 }
 
 @media (max-width: 500px) {
@@ -171,11 +187,11 @@ button:focus {
   }
 
   .mainSidebar {
-    left: -430px;
+    display: none;
   }
 
   .menuBurger {
-    display: block;
+    display: none;
   }
 
   }

@@ -53,12 +53,17 @@ class MarkerClass extends Component {
 
                 
 
-                <button className="markerButtons" onClick={() => (this.setState({turnedoff: !this.state.turnedoff}) )} style={this.state.turnedoff ? {backgroundColor: "darkred"} : null} ></button>
+                <div className="markerButtons" onClick={() => (this.setState({turnedoff: !this.state.turnedoff}) )} style={this.state.turnedoff ? {backgroundColor: "darkred"} : null} ></div>
                 <div className="describerContainer" style={!this.state.turnedoff ? {display: "block"} : null }>
                     <div className="arrowUp" />
                     <div className="describer">
-                        {this.props.item.name} <br />
-                        <button className="describerButton btn1" >Website</button><a target="_blank" href={`https://www.google.com/maps/place/${mapsURL}`} className="describerButton btn2" >Take me there</a>
+                        <div className="describerFirstHalf">
+                            {this.props.item.name} <br />
+                            <div className="doubleButtonContainer">
+                            <a><button className="describerButton btn1" >Website</button></a> <a href={`https://www.google.com/maps/place/${mapsURL}`} target="_blank" ><button  className="describerButton btn2" >Take me there</button></a>
+                            </div>
+                        </div>
+                        <div className="describerSecondHalf" style={{ backgroundImage: `url(${this.props.item.imgURL})` }} />
                     </div>
                 </div>
             </Marker> 

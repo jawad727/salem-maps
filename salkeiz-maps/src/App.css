@@ -58,13 +58,6 @@ button:focus {
   margin-bottom: 10px;
 }
 
-.markerButtons {
-  width: 20px;
-  height: 20px;
-  background-color: lightgreen;
-  border: 3px solid black;
-  border-radius: 50%;
-}
 
 .navbar {
   z-index: 2;
@@ -100,6 +93,42 @@ button:focus {
   cursor: pointer;
 }
 
+
+
+.arrowUp {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 10px solid white;
+  
+}
+
+.describer {
+  /* width: 150px;
+  height: 30px; */
+  background-color: white;
+  padding: 5px;
+  max-width: 250px;;
+}
+
+.describerContainer {
+  display: none;
+  z-index: 3;
+}
+
+.markerButtons {
+  width: 20px;
+  height: 20px;
+  background-color: lightgreen;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+.aaa:hover div {
+  display: block;
+  z-index: 50;
+}
 
 @media (max-width: 500px) {
 

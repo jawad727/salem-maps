@@ -20,6 +20,9 @@ button:focus {
   margin-top: 70px;
   margin-bottom: 70px;
   transform: translateX(0px);
+  /* width: 0px; */
+  left: 0px;
+  
 }
 
 .cardObject {
@@ -93,14 +96,12 @@ button:focus {
   cursor: pointer;
 }
 
-
-
 .arrowUp {
   width: 0; 
   height: 0; 
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 10px solid white;
+  border-bottom: 10px solid black;
   
 }
 
@@ -108,8 +109,11 @@ button:focus {
   /* width: 150px;
   height: 30px; */
   background-color: white;
-  padding: 5px;
-  max-width: 250px;;
+  padding: 7px;
+  max-width: 250px;
+  box-shadow: 2px 2px 5px grey;
+  font-family: Didact Gothic;
+  font-weight: 600;
 }
 
 .describerContainer {
@@ -128,6 +132,27 @@ button:focus {
 .aaa:hover div {
   display: block;
   z-index: 50;
+}
+
+.describerButton {
+  background-color: white;
+  border: 1px solid black;
+  margin-right: 5px;
+  font-family: Didact Gothic;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.btn1 {
+  background-color: lightgreen;
+}
+
+.btn2 {
+  background-color: lightblue;
+  padding: 2px 4px;
+  color: black;
+  text-decoration: none;;
 }
 
 @media (max-width: 500px) {

@@ -32,12 +32,14 @@ function App() {
   const ddd = {menuisopen: !menuopen.menuisopen}
 
   const editMenuAnimationClose = () => { 
-    TweenMax.to(".mainSidebar", 1, { transform: "translateX(-450px)" })
+    TweenMax.to(".mainSidebar", 1, { left: "-430px" })
+    TweenMax.to(".menuarrow", 1, { left: "-430px" })
     // console.log("Failed")
   }
 
   const editMenuAnimationOpen = () => { 
-    TweenMax.to(".mainSidebar", 1, { transform: "translateX(0px)" })
+    TweenMax.to(".mainSidebar", 1, { left: "0px" })
+    TweenMax.to(".menuarrow", 1, { left: "0px" })
     // console.log("Worked")
   }
 
@@ -45,8 +47,8 @@ function App() {
     
 
     <div className="App">
-
-    {/* {console.log(numberAuth)} */}
+    {console.log(menuopen.menuisopen)}
+    
 
     <div className="navbar">
       <p> MARION COUNTY NON-PROFITS </p>
@@ -57,7 +59,7 @@ function App() {
 
     <div className="mainSidebar">
       {locationss.map(item => (
-              <div className="cardObject" key={item.number} onClick={() => {setNumberAuth({authnumber: item.number})} }>
+              <div className="cardObject" key={item.number} onClick={() => {setNumberAuth({authnumber: item.number } ) } }>
               <div className="cardIMG" style={{ backgroundImage: `url(${item.imgURL})` }} /> 
               <div className="cardContent">
                 <p className="nameObject"> {item.name} </p>
@@ -68,7 +70,8 @@ function App() {
       ))}
     <div className="sidebarbottom"/>
     </div>
-    <div className="menuarrow"  onClick={() => (setMenuopen(ddd))}>
+    
+    <div className="menuarrow"  onClick={() => (setMenuopen({menuisopen: !menuopen.menuisopen}))}>
     <i className="fas fa-angle-right fa-4x"></i>
     </div>
 
